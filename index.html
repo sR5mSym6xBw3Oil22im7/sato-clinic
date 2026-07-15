@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-  <div class="site-shell">
-    <header class="hero" id="top">
+  <header class="site-header">
+    <div class="site-header-layout">
       <a class="brand" href="#top" aria-label="佐藤医院 トップへ">
         <img src="./img/logo.png" alt="佐藤医院 Sato Clinic">
       </a>
@@ -24,8 +24,12 @@
         <a href="#staff">スタッフ紹介</a>
         <a href="#access">所在地</a>
       </nav>
+    </div>
+  </header>
+  <div class="site-shell">
+    <div class="hero" id="top">
       <h1>地域に根ざした医療</h1>
-    </header>
+    </div>
 
     <main>
       <section class="hours hours-top" aria-labelledby="hours-title-top">
@@ -261,5 +265,58 @@
       <small>©佐藤医院</small>
     </footer>
   </div>
+  <script>
+    (() => {
+      const header = document.querySelector('.site-header');
+      const headerLinks = document.querySelectorAll('.site-header a[href^="#"]');
+      const heroSection = document.querySelector('.hero');
+      if (!header) return;
+
+      const syncHeaderBackground = () => {
+        const heroVisible = (() => {
+          if (!heroSection) return false;
+          const rect = heroSection.getBoundingClientRect();
+          const headerBottom = header.getBoundingClientRect().bottom;
+          return rect.bottom > headerBottom && rect.top < window.innerHeight;
+        })();
+
+        header.classList.toggle('is-news', !heroVisible);
+      };
+
+      const scrollToSection = (hash) => {
+        const target = document.querySelector(hash);
+        if (!target) return;
+
+        const pageScale = window.innerWidth / 1441;
+        const top = hash === '#top'
+          ? 0
+          : target.offsetTop * pageScale - 24;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'auto' });
+      };
+
+      syncHeaderBackground();
+      if (window.location.hash) {
+        requestAnimationFrame(() => scrollToSection(window.location.hash));
+      }
+
+      headerLinks.forEach((link) => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          const hash = link.getAttribute('href');
+          history.pushState(null, '', hash);
+          syncHeaderBackground();
+          scrollToSection(hash);
+        });
+      });
+
+      window.addEventListener('hashchange', () => {
+        syncHeaderBackground();
+        scrollToSection(window.location.hash);
+      });
+
+      window.addEventListener('scroll', syncHeaderBackground, { passive: true });
+      window.addEventListener('resize', syncHeaderBackground);
+    })();
+  </script>
 </body>
 </html>
