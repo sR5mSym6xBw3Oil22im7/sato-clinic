@@ -137,6 +137,15 @@ section h3 {
 .fri { left: 842px; }
 .sat { left: 973px; }
 .sun { left: 1105px; }
+.hours-bottom .rule-top,
+.hours-bottom .rule-bottom {
+  width: 1160px;
+  height: 0;
+  background: transparent;
+  border-top: 1px solid var(--line);
+  box-sizing: border-box;
+}
+
 .table-rule {
   position: absolute;
   left: 0;
