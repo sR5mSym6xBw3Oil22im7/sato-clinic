@@ -343,12 +343,23 @@ section h3 {
 
 .access { top: 7350px; height: 620px; background: #fff; }
 .access > h2 { position: absolute; left: 50%; top: 91px; transform: translateX(-50%); }
-.map-image {
+.map-frame {
   position: absolute;
   left: 188px;
   top: 190px;
   width: 620px;
   height: 390px;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  background: #e9eef3;
+}
+
+.map-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 .access-details { position: absolute; left: 858px; top: 187px; width: 430px; }
 .access-details h3 { font-size: 28px; }
