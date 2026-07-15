@@ -159,12 +159,12 @@ section h3 {
 .afternoon .period, .afternoon .time { top: 231px; }
 .mark {
   font-size: 20px;
-  line-height: 22px;
+  line-height: 30px;
   font-weight: 700;
 }
-.morning .mark { top: 184px; }
-.afternoon .mark { top: 247px; }
-.mark.off { font-size: 18px; font-weight: 400; color: #555; }
+.morning .mark { top: 175px; }
+.afternoon .mark { top: 231px; }
+.mark.off { font-size: 20px; font-weight: 400; color: #555; }
 .hours-note {
   position: absolute;
   left: 0;
@@ -201,12 +201,15 @@ section h3 {
 .news-list li {
   position: relative;
   height: 69px;
-  border-bottom: 1px solid #8d8d8d;
 }
 .news-list a {
   position: absolute;
   left: 0;
   top: 4px;
+  display: block;
+  width: 100%;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #8d8d8d;
   font-size: 20px;
   line-height: 32px;
 }
