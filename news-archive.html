@@ -3,50 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>過去のお知らせ｜佐藤医院</title>
-  <meta name="description" content="佐藤医院の過去のお知らせに関するご案内です。">
+  <title>過去のお知らせ | 佐藤医院</title>
+  <meta name="description" content="佐藤医院からの過去のお知らせ一覧です。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
 </head>
-<body class="detail-page ">
-  <header class="site-header is-news">
-    <div class="site-header-layout">
-      <a class="brand" href="./index.html" aria-label="佐藤医院 トップへ">
+<body class="detail-page">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html#top" aria-label="佐藤医院 トップへ">
         <img src="./img/logo.png" alt="佐藤医院 Sato Clinic">
       </a>
       <nav class="global-nav" aria-label="メインナビゲーション">
-        <a href="./index.html#top">トップ</a>
         <a href="./index.html#news">お知らせ</a>
         <a href="./index.html#medical">診療内容</a>
         <a href="./index.html#about">当院について</a>
-        <a href="./index.html#staff">スタッフ紹介</a>
-        <a href="./index.html#access">所在地</a>
+        <a href="./faq.html">よくあるご質問</a>
+        <a href="./index.html#staff">スタッフ</a>
+        <a href="./index.html#access">アクセス</a>
       </nav>
     </div>
   </header>
 
-  <div class="detail-shell">
-    <main class="detail-main">
+  <main class="detail-main">
+    <div class="container">
       <section class="detail-hero" aria-labelledby="page-title">
-        <p class="detail-kicker">お知らせ</p>
+        <p class="section-kicker">News</p>
         <h1 id="page-title">過去のお知らせ</h1>
       </section>
-      <article class="detail-card">
-        <h2>お知らせ一覧</h2>
-        <p>佐藤医院からの主なお知らせをご覧いただけます。</p>
-        <ul class="archive-list">
-          <li><a href="./news-influenza.html">インフルエンザ予防接種について</a></li>
-          <li><a href="./news-new-year.html">年末年始の休診について</a></li>
-          <li><a href="./news-health-check.html">健康診断のご案内</a></li>
-          <li><a href="./news-covid19.html">新型コロナウィルス対策について</a></li>
-          <li><a href="./news-online.html">オンライン診療の導入について</a></li>
-        </ul>
-      </article>
-      <a class="back-button" href="./index.html">戻る</a>
-    </main>
-    <footer class="detail-footer"><small>©佐藤医院</small></footer>
-  </div>
+
+      <div class="detail-stack">
+        <article class="detail-card">
+          <h2>お知らせ一覧</h2>
+          <p>佐藤医院からご案内しているお知らせです。気になる記事がありましたら詳細ページをご確認ください。</p>
+          <ul class="archive-list">
+            <li><a href="./news-influenza.html">インフルエンザ予防接種について</a></li>
+            <li><a href="./news-new-year.html">年末年始の診療について</a></li>
+            <li><a href="./news-health-check.html">健康診断のご案内</a></li>
+            <li><a href="./news-covid19.html">新型コロナウイルス対応について</a></li>
+            <li><a href="./news-online.html">オンライン診療のご案内</a></li>
+          </ul>
+        </article>
+
+        <div class="detail-actions">
+          <a class="button button-primary" href="./index.html#news">トップのお知らせへ戻る</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="footer-brand">佐藤医院</p>
+        <p>〒123-4567 東京都台東区上野0-0-0</p>
+        <p>TEL 03-123-4567</p>
+      </div>
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <a href="./about-detail.html">当院について</a>
+        <a href="./medical-detail.html">診療内容</a>
+        <a href="./faq.html">FAQ</a>
+      </nav>
+    </div>
+  </footer>
 </body>
 </html>
