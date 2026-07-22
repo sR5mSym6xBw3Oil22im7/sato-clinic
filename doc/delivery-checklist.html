@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>納品一覧・確認書 | 佐藤医院Webサイト</title>
+  <meta name="description" content="佐藤医院Webサイトの納品一覧と確認事項です。成果物、構成、注意点をまとめています。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body data-doc-page="delivery-checklist">
+  <header class="doc-header">
+    <div class="doc-shell doc-header-inner">
+      <a class="doc-brand" href="./index.html">佐藤医院 納品ドキュメント</a>
+      <nav class="doc-nav" aria-label="ドキュメントナビゲーション">
+        <a href="./index.html" data-doc-link="index">トップ</a>
+        <a href="./requirements.html" data-doc-link="requirements">要件定義書</a>
+        <a href="./design.html" data-doc-link="design">設計書</a>
+        <a href="./test-plan.html" data-doc-link="test-plan">テスト仕様書</a>
+        <a href="./delivery-checklist.html" data-doc-link="delivery-checklist">納品一覧</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="doc-main">
+    <div class="doc-shell">
+      <section class="hero">
+        <p class="hero-kicker">Delivery</p>
+        <h1>納品一覧・確認書</h1>
+        <p>納品対象となるソース一式、補助ドキュメント、および引き継ぎ時の確認事項を整理しています。</p>
+      </section>
+
+      <div class="grid">
+        <section class="section-card">
+          <h2>1. 納品物一覧</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>区分</th>
+                  <th>内容</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>ページHTML</td><td>トップ、詳細、一覧、問い合わせ、お知らせ更新導線を含むHTML一式</td></tr>
+                <tr><td>CSS</td><td><code>css/style.css</code></td></tr>
+                <tr><td>JavaScript</td><td><code>js/news-data.js</code>、<code>js/news.js</code>、<code>js/contact.js</code>、<code>js/news-update-popup.js</code></td></tr>
+                <tr><td>画像</td><td><code>img/</code> 配下の素材一式</td></tr>
+                <tr><td>文書</td><td><code>README.md</code>、<code>AGENTS.md</code>、<code>doc/</code> 配下一式</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section-card">
+          <h2>2. 既知の仕様</h2>
+          <ul>
+            <li>お知らせは静的データ管理であり、管理画面投稿機能は未実装</li>
+            <li>お知らせ更新導線は専用画面へ遷移するが、機能本体は `Comming Soon` 表示</li>
+            <li>電話、メール導線の一部もモックとして `Comming Soon` ポップアップを表示</li>
+            <li>フォーム送信は実メール送信ではなく起票確認用のモック</li>
+          </ul>
+        </section>
+
+        <section class="section-card">
+          <h2>3. 運用上の注意</h2>
+          <ul>
+            <li>お知らせ内容を更新する場合は <code>js/news-data.js</code> を編集する</li>
+            <li>画像追加時はスマホ表示の表示速度に注意する</li>
+            <li>HTML保存時は UTF-8 を維持する</li>
+            <li>ヘッダ導線やページアンカー変更時は全ページの整合性を確認する</li>
+          </ul>
+        </section>
+
+        <section class="section-card">
+          <h2>4. 受領確認事項</h2>
+          <ul>
+            <li>ソース一式が欠けなく格納されていること</li>
+            <li>納品ドキュメントが UTF-8 で閲覧できること</li>
+            <li>主要ページがブラウザで表示できること</li>
+            <li>GitHub Pages 公開に必要な静的ファイルのみで構成されていること</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="doc-footer">
+    <div class="doc-shell">©佐藤医院 納品ドキュメント</div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>

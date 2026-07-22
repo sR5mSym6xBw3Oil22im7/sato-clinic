@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>設計書 | 佐藤医院Webサイト</title>
+  <meta name="description" content="佐藤医院Webサイトの設計書です。画面構成、ファイル構成、主要処理、実装方針をまとめています。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body data-doc-page="design">
+  <header class="doc-header">
+    <div class="doc-shell doc-header-inner">
+      <a class="doc-brand" href="./index.html">佐藤医院 納品ドキュメント</a>
+      <nav class="doc-nav" aria-label="ドキュメントナビゲーション">
+        <a href="./index.html" data-doc-link="index">トップ</a>
+        <a href="./requirements.html" data-doc-link="requirements">要件定義書</a>
+        <a href="./design.html" data-doc-link="design">設計書</a>
+        <a href="./test-plan.html" data-doc-link="test-plan">テスト仕様書</a>
+        <a href="./delivery-checklist.html" data-doc-link="delivery-checklist">納品一覧</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="doc-main">
+    <div class="doc-shell">
+      <section class="hero">
+        <p class="hero-kicker">Design</p>
+        <h1>設計書</h1>
+        <p>現行ソースをもとにした画面設計、ファイル設計、主要JavaScript処理、UI方針を記載します。静的サイトとしての運用性を重視した設計です。</p>
+      </section>
+
+      <div class="grid">
+        <section class="section-card">
+          <h2>1. 画面構成</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>区分</th>
+                  <th>画面</th>
+                  <th>補足</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>トップ</td><td>index.html</td><td>各主要セクションを1ページに集約</td></tr>
+                <tr><td>一覧</td><td>news-archive.html</td><td>全お知らせ一覧</td></tr>
+                <tr><td>詳細</td><td>about-detail.html / medical-detail.html / faq.html / access.html</td><td>トップからの詳細遷移先</td></tr>
+                <tr><td>予約</td><td>reservation.html</td><td>フォームモック、電話・メール導線</td></tr>
+                <tr><td>機能導線</td><td>news-update.html</td><td>お知らせ更新の将来導線。現状は Comming Soon</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section-card">
+          <h2>2. 共通UI設計</h2>
+          <ul>
+            <li>ヘッダは全ページで共通メニュー構成とする</li>
+            <li>ロゴ押下時はトップ先頭へ戻る導線とする</li>
+            <li>フッタは全ページ `©佐藤医院` のみ表示する</li>
+            <li>CTA ボタンは主要導線と補助導線でスタイルを使い分ける</li>
+          </ul>
+        </section>
+
+        <section class="section-card">
+          <h2>3. ファイル設計</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>ファイル</th>
+                  <th>役割</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>css/style.css</td><td>全ページ共通スタイル、レスポンシブ対応、カード・ボタン・ポップアップデザイン</td></tr>
+                <tr><td>js/news-data.js</td><td>お知らせデータ配列を保持</td></tr>
+                <tr><td>js/news.js</td><td>お知らせ一覧表示、詳細表示、日付整形</td></tr>
+                <tr><td>js/contact.js</td><td>問い合わせフォームの入力整形とメール起票リンク生成</td></tr>
+                <tr><td>js/news-update-popup.js</td><td>ニュース更新ポップアップの表示制御</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section-card">
+          <h2>4. JavaScript設計</h2>
+          <h3>お知らせ描画</h3>
+          <ul>
+            <li><code>window.SATO_NEWS</code> をデータソースとする</li>
+            <li>日付降順に並べ替えてトップと一覧へ描画する</li>
+            <li>詳細ページは <code>?slug=...</code> で対象記事を判定する</li>
+          </ul>
+
+          <h3>問い合わせモック</h3>
+          <ul>
+            <li>フォーム送信時にバリデーションを行う</li>
+            <li>入力内容をもとに件名・本文を組み立てる</li>
+            <li>メールソフト起動用の <code>mailto:</code> リンクを生成する</li>
+          </ul>
+
+          <h3>ポップアップ</h3>
+          <ul>
+            <li>電話、メール、お知らせ更新などの未実装導線で `Comming Soon` を表示する</li>
+            <li>背景クリックまたは閉じる操作で非表示にする</li>
+          </ul>
+        </section>
+
+        <section class="section-card">
+          <h2>5. レスポンシブ設計</h2>
+          <ul>
+            <li>CSS Grid と Flexbox を併用する</li>
+            <li>スマホ幅では2カラム系セクションを1カラム化する</li>
+            <li>スマホ初期表示の体感速度向上のため、下層画像は遅延読込を採用する</li>
+          </ul>
+        </section>
+
+        <section class="section-card">
+          <h2>6. 画像・アセット設計</h2>
+          <ul>
+            <li>ロゴ、スタッフ写真、院内写真、診療画像を <code>img/</code> 配下で管理する</li>
+            <li>ファーストビュー画像は優先読込し、それ以外は必要に応じて後読込とする</li>
+            <li>画像比率は既存CSSの責務で制御し、レイアウト崩れを抑える</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="doc-footer">
+    <div class="doc-shell">©佐藤医院 納品ドキュメント</div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>

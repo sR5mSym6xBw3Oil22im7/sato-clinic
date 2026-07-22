@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>テスト仕様書 | 佐藤医院Webサイト</title>
+  <meta name="description" content="佐藤医院Webサイトのテスト仕様書です。表示、遷移、JavaScript、レスポンシブ観点を整理しています。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body data-doc-page="test-plan">
+  <header class="doc-header">
+    <div class="doc-shell doc-header-inner">
+      <a class="doc-brand" href="./index.html">佐藤医院 納品ドキュメント</a>
+      <nav class="doc-nav" aria-label="ドキュメントナビゲーション">
+        <a href="./index.html" data-doc-link="index">トップ</a>
+        <a href="./requirements.html" data-doc-link="requirements">要件定義書</a>
+        <a href="./design.html" data-doc-link="design">設計書</a>
+        <a href="./test-plan.html" data-doc-link="test-plan">テスト仕様書</a>
+        <a href="./delivery-checklist.html" data-doc-link="delivery-checklist">納品一覧</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="doc-main">
+    <div class="doc-shell">
+      <section class="hero">
+        <p class="hero-kicker">Test Plan</p>
+        <h1>テスト仕様書</h1>
+        <p>静的Webサイトとして確認すべき表示、導線、JavaScript挙動、レスポンシブ観点を整理しています。最終公開前の確認観点として利用します。</p>
+      </section>
+
+      <div class="grid">
+        <section class="section-card">
+          <h2>1. テスト方針</h2>
+          <ul>
+            <li>主要ページの表示確認</li>
+            <li>ヘッダ、ロゴ、各CTAの遷移確認</li>
+            <li>お知らせ描画、フォームモック、ポップアップのJavaScript挙動確認</li>
+            <li>スマホ表示時のレイアウト崩れ確認</li>
+          </ul>
+        </section>
+
+        <section class="section-card">
+          <h2>2. 画面テスト項目</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>観点</th>
+                  <th>確認内容</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>トップ表示</td><td><code>index.html</code> が文字化けなく表示されること</td></tr>
+                <tr><td>2</td><td>ヘッダ共通化</td><td>各ページのメニュー順・リンク先が一致すること</td></tr>
+                <tr><td>3</td><td>ロゴ導線</td><td>ロゴ押下時に意図したトップ位置へ戻ること</td></tr>
+                <tr><td>4</td><td>フッタ</td><td>全ページで `©佐藤医院` のみ表示されること</td></tr>
+                <tr><td>5</td><td>アクセス導線</td><td>トップからアクセス詳細ページへ遷移できること</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section-card">
+          <h2>3. JavaScriptテスト項目</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>対象</th>
+                  <th>確認内容</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>お知らせ一覧</td><td>トップに最新5件が日付降順で表示されること</td></tr>
+                <tr><td>2</td><td>お知らせ一覧ページ</td><td>全件が表示されること</td></tr>
+                <tr><td>3</td><td>お知らせ詳細</td><td><code>slug</code> 指定で詳細内容が切り替わること</td></tr>
+                <tr><td>4</td><td>問い合わせフォーム</td><td>必須入力チェック後、メール起票内容が表示されること</td></tr>
+                <tr><td>5</td><td>Comming Soon ポップアップ</td><td>電話、メール、未実装導線で小ポップアップ表示されること</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section-card">
+          <h2>4. レスポンシブ確認項目</h2>
+          <ul>
+            <li>スマホ幅で横スクロールが発生しないこと</li>
+            <li>画像が不自然に潰れたり崩れたりしないこと</li>
+            <li>ボタンがタップ可能なサイズを維持していること</li>
+            <li>遅延読込した画像が表示崩れを起こさないこと</li>
+          </ul>
+        </section>
+
+        <section class="section-card">
+          <h2>5. 受入確認項目</h2>
+          <ul>
+            <li>UTF-8 で保存され、文字化けが再発しないこと</li>
+            <li>DB不要、サーバーサイド不要でGitHub Pages上で表示できること</li>
+            <li>ユーザー指示の最新内容が反映されていること</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="doc-footer">
+    <div class="doc-shell">©佐藤医院 納品ドキュメント</div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>

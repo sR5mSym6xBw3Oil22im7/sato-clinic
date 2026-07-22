@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>要件定義書 | 佐藤医院Webサイト</title>
+  <meta name="description" content="佐藤医院Webサイトの要件定義書です。添付資料と現行ソースをもとに要件を整理しています。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body data-doc-page="requirements">
+  <header class="doc-header">
+    <div class="doc-shell doc-header-inner">
+      <a class="doc-brand" href="./index.html">佐藤医院 納品ドキュメント</a>
+      <nav class="doc-nav" aria-label="ドキュメントナビゲーション">
+        <a href="./index.html" data-doc-link="index">トップ</a>
+        <a href="./requirements.html" data-doc-link="requirements">要件定義書</a>
+        <a href="./design.html" data-doc-link="design">設計書</a>
+        <a href="./test-plan.html" data-doc-link="test-plan">テスト仕様書</a>
+        <a href="./delivery-checklist.html" data-doc-link="delivery-checklist">納品一覧</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="doc-main">
+    <div class="doc-shell">
+      <section class="hero">
+        <p class="hero-kicker">Requirements</p>
+        <h1>要件定義書</h1>
+        <p>添付の制作依頼書・掲載原稿と、現行実装ソースから読み取れる要件を整理した文書です。運用中に口頭・チャットで補正された内容も反映しています。</p>
+      </section>
+
+      <div class="grid">
+        <section class="section-card">
+          <h2>1. プロジェクト概要</h2>
+          <div class="table-wrap">
+            <table>
+              <tbody>
+                <tr><th>案件名</th><td>佐藤医院 Webサイト制作</td></tr>
+                <tr><th>構成</th><td>静的Webサイト一式</td></tr>
+                <tr><th>利用技術</th><td>HTML / CSS / JavaScript</td></tr>
+                <tr><th>文字コード</th><td>UTF-8</td></tr>
+                <tr><th>公開想定</th><td>GitHub Pages</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section-card">
+          <h2>2. サイト目的</h2>
+          <ul>
+            <li>来院前の患者に対して診療内容、診療時間、所在地、院内の雰囲気を伝える</li>
+            <li>医院の安心感、親しみやすさ、清潔感をWeb上で表現する</li>
+            <li>お知らせや問い合わせ導線を提供し、来院判断を後押しする</li>
+          </ul>
+        </section>
+
+        <section class="section-card">
+          <h2>3. 対象ユーザー</h2>
+          <ul>
+            <li>地域住民</li>
+            <li>初診を検討している患者</li>
+            <li>生活習慣病や一般内科の相談先を探している人</li>
+            <li>診療時間、アクセス、問い合わせ先を確認したい人</li>
+          </ul>
+        </section>
+
+        <section class="section-card">
+          <h2>4. 必須要件</h2>
+          <ul>
+            <li>トップページを中心に、主要情報へ遷移できること</li>
+            <li>診療内容、お知らせ、当院について、スタッフ紹介、FAQ、アクセス、予約・お問い合わせを掲載すること</li>
+            <li>Google マップをアクセスページに埋め込むこと</li>
+            <li>スマートフォン表示に対応すること</li>
+            <li>フッタは `©佐藤医院` のみとすること</li>
+          </ul>
+          <div class="note">ユーザーからの補正指示により、受付時間の正は「午前 9:00〜12:00、午後 13:00〜18:00」です。ZIP記載の誤記は採用しません。</div>
+        </section>
+
+        <section class="section-card">
+          <h2>5. ページ要件</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>ページ</th>
+                  <th>役割</th>
+                  <th>主な内容</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>index.html</td><td>トップページ</td><td>ヒーロー、お知らせ、院長挨拶、診療内容、当院について、スタッフ紹介、FAQ、アクセス概要</td></tr>
+                <tr><td>news-archive.html</td><td>お知らせ一覧</td><td>全お知らせ一覧</td></tr>
+                <tr><td>news-detail.html</td><td>お知らせ詳細</td><td>クエリ文字列による詳細表示</td></tr>
+                <tr><td>medical-detail.html</td><td>診療内容詳細</td><td>追加の診療項目紹介</td></tr>
+                <tr><td>about-detail.html</td><td>当院について詳細</td><td>理念、院内方針、特徴</td></tr>
+                <tr><td>faq.html</td><td>FAQ</td><td>よくある質問一覧</td></tr>
+                <tr><td>access.html</td><td>アクセス</td><td>診療時間、所在地、マップ、交通案内</td></tr>
+                <tr><td>reservation.html</td><td>予約・お問い合わせ</td><td>電話、メール、問い合わせフォームのモック導線</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section-card">
+          <h2>6. 機能要件</h2>
+          <ul>
+            <li>お知らせ一覧は JavaScript で最新順表示する</li>
+            <li>お知らせ詳細は URL パラメータから対象記事を判定して表示する</li>
+            <li>問い合わせフォームは入力内容をメール起票用に整形して表示するモックとする</li>
+            <li>電話、メール、一部未実装導線は `Comming Soon` ポップアップで対応する</li>
+            <li>ヘッダ導線は各ページで共通の情報設計に沿うこと</li>
+          </ul>
+        </section>
+
+        <section class="section-card">
+          <h2>7. 非機能要件</h2>
+          <ul>
+            <li>UTF-8 で統一し、文字化けを防ぐこと</li>
+            <li>スマートフォンでも閲覧しやすいレスポンシブレイアウトとすること</li>
+            <li>初期表示に不要な画像は遅延読込で体感速度に配慮すること</li>
+            <li>アクセシビリティを考慮し、画像に代替テキストを付与すること</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="doc-footer">
+    <div class="doc-shell">©佐藤医院 納品ドキュメント</div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>

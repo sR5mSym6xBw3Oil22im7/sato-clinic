@@ -1,38 +1,85 @@
-# Sato Clinic
+# 佐藤医院 Webサイト
 
-さとうクリニックの紹介サイトです。
-HTML と CSS のみで構成された静的サイトで、画像素材は `img/` に保存されています。
+佐藤医院の静的Webサイト一式です。  
+HTML / CSS / JavaScript のみで構成しており、サーバーサイド処理やデータベースは使用していません。  
+GitHub Pages での公開を前提にした構成です。
 
-## サイト内容
+## 概要
 
-- トップページ
-- お知らせ一覧
-- 各種お知らせページ（新型コロナ、インフルエンザ、健康診断、オンライン診療など）
-- 院長あいさつページ
-- 詳細ページ
+本リポジトリは、添付要件 `sato-clinic-kit_20260722.zip` と現行ソースをもとに整備した、医院向けコーポレートサイトです。  
+トップページを中心に、診療内容、当院について、スタッフ紹介、FAQ、アクセス、予約・お問い合わせ、お知らせ詳細ページ群で構成されています。
 
-## ファイル構成
+## 主な実装内容
 
-- `index.html` - トップページの HTML
-- `about-detail.html` - クリニック詳細ページ
-- `news-*.html` - お知らせ・各種ニュースページ
-- `css/style.css` - 全体のレイアウトとデザイン
-- `img/` - ロゴ、写真、イラストなどの画像素材
-- `LICENSE` - ライセンス情報
+- トップページ `index.html`
+- お知らせ一覧ページ `news-archive.html`
+- お知らせ詳細ページ `news-detail.html` と各個別ページ
+- 診療内容詳細ページ `medical-detail.html`
+- 当院について詳細ページ `about-detail.html`
+- よくあるご質問ページ `faq.html`
+- 診療時間・所在地ページ `access.html`
+- 予約・お問い合わせページ `reservation.html`
+- お知らせ更新導線ページ `news-update.html`
 
-## 動作確認方法
+## 技術構成
 
-1. `index.html` をブラウザで開きます。
-2. サイトの表示・リンク・画像が正しく表示されることを確認します。
-3. 追加のお知らせページは `news-archive.html` などから確認できます。
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- 文字コード: UTF-8
 
-## 編集方法
+## ディレクトリ構成
 
-- テキストを変更する場合は `index.html`、`about-detail.html`、`news-*.html` を編集してください。
-- レイアウトや色を変更する場合は `css/style.css` を編集してください。
-- 画像を差し替える場合は `img/` 内のファイルを更新してください。
+```text
+.
+├─ about-detail.html
+├─ access.html
+├─ faq.html
+├─ index.html
+├─ medical-detail.html
+├─ news-archive.html
+├─ news-detail.html
+├─ news-update.html
+├─ reservation.html
+├─ css/
+│  └─ style.css
+├─ js/
+│  ├─ contact.js
+│  ├─ news-data.js
+│  ├─ news-update-popup.js
+│  └─ news.js
+├─ img/
+└─ doc/
+   ├─ index.html
+   ├─ requirements.html
+   ├─ design.html
+   ├─ test-plan.html
+   ├─ delivery-checklist.html
+   ├─ style.css
+   └─ script.js
+```
 
-## 補足
+## ローカル確認方法
 
-- このサイトはサーバー側の処理を持たない静的サイトです。
-- Github Pages やローカルの静的ファイルサーバーでそのまま公開できます。
+`index.html` をブラウザで直接開いて確認できます。  
+相対パスで構成しているため、簡易的な静的配信環境でもそのまま表示できます。
+
+## 注意事項
+
+- 予約・お問い合わせ、お知らせ更新などの一部導線は、仕様上 `Comming Soon` 表示で着地します。
+- お知らせは `js/news-data.js` の配列データをもとに描画しています。
+- 診療時間は要件誤記の訂正にあわせて、午前 `9:00〜12:00`、午後 `13:00〜18:00` を正として実装しています。
+
+## 納品ドキュメント
+
+納品ドキュメントは `doc/` 配下に格納しています。
+
+- `doc/index.html`: ドキュメントトップ
+- `doc/requirements.html`: 要件定義書
+- `doc/design.html`: 設計書
+- `doc/test-plan.html`: テスト仕様書
+- `doc/delivery-checklist.html`: 納品一覧・確認書
+
+## ライセンス
+
+ライセンス表記は [LICENSE](./LICENSE) を参照してください。

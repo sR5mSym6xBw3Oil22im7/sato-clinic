@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>納品ドキュメント | 佐藤医院Webサイト</title>
+  <meta name="description" content="佐藤医院Webサイトの納品ドキュメント一覧です。要件定義書、設計書、テスト仕様書、納品一覧を参照できます。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body data-doc-page="index">
+  <header class="doc-header">
+    <div class="doc-shell doc-header-inner">
+      <a class="doc-brand" href="./index.html">佐藤医院 納品ドキュメント</a>
+      <nav class="doc-nav" aria-label="ドキュメントナビゲーション">
+        <a href="./index.html" data-doc-link="index">トップ</a>
+        <a href="./requirements.html" data-doc-link="requirements">要件定義書</a>
+        <a href="./design.html" data-doc-link="design">設計書</a>
+        <a href="./test-plan.html" data-doc-link="test-plan">テスト仕様書</a>
+        <a href="./delivery-checklist.html" data-doc-link="delivery-checklist">納品一覧</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="doc-main">
+    <div class="doc-shell">
+      <section class="hero">
+        <p class="hero-kicker">Documents</p>
+        <h1>佐藤医院Webサイト 納品ドキュメント一式</h1>
+        <p>本ドキュメント群は、添付の <code>sato-clinic-kit_20260722.zip</code> に含まれる要件資料と、本リポジトリの現行ソースをもとに整理した納品文書です。すべて UTF-8 で作成し、HTML / CSS / JavaScript で閲覧できるように統一しています。</p>
+        <div class="pill-list">
+          <span class="pill">UTF-8</span>
+          <span class="pill">HTML / CSS / JavaScript</span>
+          <span class="pill">GitHub Pages想定</span>
+          <span class="pill">静的サイト構成</span>
+        </div>
+      </section>
+
+      <div class="grid two">
+        <section class="section-card">
+          <h2>収録文書</h2>
+          <ul>
+            <li><a href="./requirements.html">要件定義書</a></li>
+            <li><a href="./design.html">設計書</a></li>
+            <li><a href="./test-plan.html">テスト仕様書</a></li>
+            <li><a href="./delivery-checklist.html">納品一覧・確認書</a></li>
+          </ul>
+        </section>
+
+        <section class="section-card">
+          <h2>文書作成の前提</h2>
+          <ul>
+            <li>公開サイトは静的Webサイトとして構築する</li>
+            <li>サーバーサイド処理やDBは使用しない</li>
+            <li>ユーザー指示により診療時間は午前 9:00〜12:00、午後 13:00〜18:00 を正とする</li>
+            <li>一部機能はモックとして <code>Comming Soon</code> で着地する</li>
+          </ul>
+        </section>
+      </div>
+
+      <section class="section-card" style="margin-top:24px;">
+        <h2>対象成果物</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>区分</th>
+                <th>内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>HTML</td>
+                <td>トップページ、詳細ページ群、ニュース関連ページ、予約・お問い合わせページ</td>
+              </tr>
+              <tr>
+                <td>CSS</td>
+                <td>全ページ共通スタイル <code>css/style.css</code></td>
+              </tr>
+              <tr>
+                <td>JavaScript</td>
+                <td>お知らせ描画、詳細描画、問い合わせモック、ポップアップ制御</td>
+              </tr>
+              <tr>
+                <td>画像</td>
+                <td>ロゴ、キービジュアル、診療案内、スタッフ、院内写真など</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="doc-footer">
+    <div class="doc-shell">©佐藤医院 納品ドキュメント</div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
