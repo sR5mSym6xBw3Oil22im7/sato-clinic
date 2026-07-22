@@ -8,13 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="./img/hero.jpg" fetchpriority="high">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="./index.html" aria-label="佐藤医院 トップへ">
-        <img src="./img/logo.png" alt="佐藤医院 Sato Clinic">
+        <img src="./img/logo.png" alt="佐藤医院 Sato Clinic" width="500" height="150" decoding="async">
       </a>
       <nav class="global-nav" aria-label="メインナビゲーション">
         <a href="#news">お知らせ</a>
@@ -75,13 +76,13 @@
     </section>
 
     <section class="care-strip" aria-label="診療イメージ">
-      <img src="./img/care-strip.png" alt="やさしい診療のイメージ">
+      <img src="./img/care-strip.png" alt="やさしい診療のイメージ" width="2882" height="630" loading="lazy" fetchpriority="low" decoding="async">
     </section>
 
     <section class="section" id="news" aria-labelledby="news-title">
       <div class="container split-layout">
         <div class="visual-panel">
-          <img src="./img/news-tree.png" alt="お知らせのイメージ">
+          <img src="./img/news-tree.png" alt="お知らせのイメージ" width="732" height="880" loading="lazy" fetchpriority="low" decoding="async">
         </div>
         <div class="content-panel">
           <div class="section-heading align-left">
@@ -97,7 +98,7 @@
     <section class="section section-soft" aria-labelledby="greeting-title">
       <div class="container split-layout reverse-mobile">
         <div class="visual-panel portrait-panel">
-          <img src="./img/greeting-doctor.png" alt="院長 佐藤太郎">
+          <img src="./img/greeting-doctor.png" alt="院長 佐藤太郎" width="880" height="760" loading="lazy" fetchpriority="low" decoding="async">
           <p class="caption-en">SATO TARO</p>
         </div>
         <div class="content-panel">
@@ -123,28 +124,28 @@
         </div>
         <div class="medical-grid">
           <article class="feature-card">
-            <img src="./img/medical-general.png" alt="一般内科診療">
+            <img src="./img/medical-general.png" alt="一般内科診療" width="760" height="600" loading="lazy" fetchpriority="low" decoding="async">
             <div>
               <h3>一般内科診療</h3>
               <p>風邪や発熱、喉の痛み、頭痛、腹痛などの症状を中心に、一般的な体調不良の診療を行っています。</p>
             </div>
           </article>
           <article class="feature-card">
-            <img src="./img/medical-lifestyle.png" alt="生活習慣病の診断・治療">
+            <img src="./img/medical-lifestyle.png" alt="生活習慣病の診断・治療" width="760" height="600" loading="lazy" fetchpriority="low" decoding="async">
             <div>
               <h3>生活習慣病の診断・治療</h3>
               <p>高血圧症、糖尿病、脂質異常症などの診断と治療を行い、生活指導や薬物療法を通じて健康維持を支えます。</p>
             </div>
           </article>
           <article class="feature-card">
-            <img src="./img/medical-digestive.png" alt="消化器系の診療">
+            <img src="./img/medical-digestive.png" alt="消化器系の診療" width="760" height="600" loading="lazy" fetchpriority="low" decoding="async">
             <div>
               <h3>消化器系の診療</h3>
               <p>胃痛、胃もたれ、胸やけ、便秘、下痢など、消化器系の不調に対応しています。</p>
             </div>
           </article>
           <article class="feature-card">
-            <img src="./img/medical-respiratory.png" alt="呼吸器系の診療">
+            <img src="./img/medical-respiratory.png" alt="呼吸器系の診療" width="760" height="600" loading="lazy" fetchpriority="low" decoding="async">
             <div>
               <h3>呼吸器系の診療</h3>
               <p>咳、息切れ、胸の痛みなど、呼吸器系の症状について診療を行っています。</p>
@@ -160,7 +161,7 @@
     <section class="section section-alt" id="about" aria-labelledby="about-title">
       <div class="container split-layout">
         <div class="visual-panel">
-          <img src="./img/clinic-interior.png" alt="院内イメージ">
+          <img src="./img/clinic-interior.png" alt="院内イメージ" width="760" height="600" loading="lazy" fetchpriority="low" decoding="async">
         </div>
         <div class="content-panel">
           <div class="section-heading align-left">
@@ -185,7 +186,7 @@
         <p class="section-lead">地域の皆様に安心してご来院いただけるよう、スタッフ一同、誠心誠意対応いたします。</p>
         <div class="staff-grid">
           <article class="staff-card">
-            <img src="./img/staff-sato.png" alt="院長 佐藤太郎">
+            <img src="./img/staff-sato.png" alt="院長 佐藤太郎" width="760" height="600" loading="lazy" fetchpriority="low" decoding="async">
             <h3>院長 佐藤 太郎</h3>
             <ul>
               <li>専門分野: 生活習慣病、呼吸器疾患、内科全般</li>
@@ -193,7 +194,7 @@
             </ul>
           </article>
           <article class="staff-card">
-            <img src="./img/staff-suzuki.png" alt="看護師長 鈴木真理">
+            <img src="./img/staff-suzuki.png" alt="看護師長 鈴木真理" width="760" height="600" loading="lazy" fetchpriority="low" decoding="async">
             <h3>看護師長 鈴木 真理</h3>
             <ul>
               <li>得意分野: 親身な対応、注射・採血技術、健康管理指導</li>
@@ -201,7 +202,7 @@
             </ul>
           </article>
           <article class="staff-card">
-            <img src="./img/staff-takahashi.png" alt="臨床検査技師 高橋由美">
+            <img src="./img/staff-takahashi.png" alt="臨床検査技師 高橋由美" width="1447" height="1087" loading="lazy" fetchpriority="low" decoding="async">
             <h3>臨床検査技師 高橋 由美</h3>
             <ul>
               <li>得意分野: 血液検査、心電図検査、超音波検査</li>
@@ -209,7 +210,7 @@
             </ul>
           </article>
           <article class="staff-card">
-            <img src="./img/staff-yamamoto.png" alt="医療事務 山本花">
+            <img src="./img/staff-yamamoto.png" alt="医療事務 山本花" width="1448" height="1086" loading="lazy" fetchpriority="low" decoding="async">
             <h3>医療事務 山本 花</h3>
             <ul>
               <li>得意分野: 受付業務、カルテ管理、医療費計算</li>
