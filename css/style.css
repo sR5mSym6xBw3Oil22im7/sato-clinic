@@ -43,6 +43,13 @@ a {
   text-decoration: none;
 }
 
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
 ul,
 ol,
 p,
@@ -150,7 +157,8 @@ h3 {
 }
 
 .hero-actions,
-.cta-row {
+.cta-row,
+.detail-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -168,6 +176,7 @@ h3 {
   font-size: 0.98rem;
   font-weight: 700;
   transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
 }
 
 .button:hover,
@@ -253,7 +262,12 @@ h3 {
 .detail-block,
 .detail-hero,
 .news-list,
-.map-frame {
+.map-frame,
+.news-card,
+.contact-panel,
+.contact-form-card,
+.contact-result,
+.info-list {
   border-radius: var(--radius-lg);
 }
 
@@ -268,32 +282,87 @@ h3 {
   gap: 24px;
 }
 
-.news-list {
+.news-list,
+.archive-list {
   list-style: none;
-  padding: 10px 0 0;
+  padding: 0;
+  margin: 0;
   background: rgba(255, 255, 255, 0.75);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
+  overflow: hidden;
 }
 
-.news-list li + li {
+.news-list li + li,
+.archive-list li + li {
   border-top: 1px solid var(--line);
 }
 
-.news-list a {
+.news-link,
+.archive-list a {
   display: block;
   padding: 20px 24px;
-  font-size: 1.05rem;
-  font-weight: 500;
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.news-list a:hover,
-.news-list a:focus-visible,
+.news-link:hover,
+.news-link:focus-visible,
 .archive-list a:hover,
 .archive-list a:focus-visible {
   background: var(--blue-soft);
   color: var(--blue-strong);
+}
+
+.news-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.news-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: var(--blue-soft);
+  color: var(--blue-strong);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.news-link-title {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.news-link-summary {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
+.news-card {
+  padding: 32px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.news-card h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  line-height: 1.3;
+  color: var(--blue-strong);
+}
+
+.news-card .prose {
+  margin-top: 22px;
 }
 
 .portrait-panel {
@@ -368,7 +437,9 @@ h3 {
 .medical-grid,
 .staff-grid,
 .faq-preview-grid,
-.detail-grid {
+.detail-grid,
+.contact-grid,
+.info-grid {
   display: grid;
   gap: 24px;
 }
@@ -400,7 +471,10 @@ h3 {
 .faq-preview-card h3,
 .access-card h3,
 .detail-card h3,
-.detail-block h3 {
+.detail-block h3,
+.contact-panel h3,
+.contact-form-card h3,
+.info-list h3 {
   color: var(--ink);
   font-size: 1.3rem;
   line-height: 1.35;
@@ -412,7 +486,11 @@ h3 {
 .detail-card p,
 .detail-block p,
 .detail-card li,
-.detail-block li {
+.detail-block li,
+.contact-panel p,
+.contact-form-card p,
+.info-list li,
+.info-list p {
   margin-top: 10px;
   color: var(--muted);
 }
@@ -426,7 +504,11 @@ h3 {
 .staff-card,
 .access-card,
 .detail-card,
-.detail-block {
+.detail-block,
+.contact-panel,
+.contact-form-card,
+.contact-result,
+.info-list {
   padding: 24px;
   background: var(--white);
   border: 1px solid var(--line);
@@ -455,7 +537,9 @@ h3 {
 .detail-card ul,
 .detail-card ol,
 .detail-block ul,
-.detail-block ol {
+.detail-block ol,
+.contact-panel ul,
+.info-list ul {
   margin: 14px 0 0;
   padding-left: 1.2rem;
   color: var(--muted);
@@ -463,14 +547,16 @@ h3 {
 
 .staff-card li + li,
 .detail-card li + li,
-.detail-block li + li {
+.detail-block li + li,
+.contact-panel li + li,
+.info-list li + li {
   margin-top: 8px;
 }
 
-.access-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-  gap: 28px;
+.access-grid,
+.contact-grid,
+.info-grid {
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
   margin-top: 28px;
 }
 
@@ -488,32 +574,125 @@ h3 {
   border: 0;
 }
 
-.access-card {
+.access-card,
+.contact-panel {
   display: grid;
   gap: 24px;
 }
 
-.department-list {
-  display: grid;
-  gap: 16px;
-  max-width: 760px;
-  margin: 28px auto 0;
-  font-size: 1.15rem;
-  font-weight: 500;
-  text-align: center;
+.contact-note {
+  margin-top: 14px;
+  padding: 16px 18px;
+  border-radius: var(--radius-sm);
+  background: var(--blue-soft);
+  color: var(--ink);
 }
 
-.department-list p {
-  padding: 18px 20px;
-  background: var(--white);
+.contact-form {
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.form-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.form-field {
+  display: grid;
+  gap: 8px;
+}
+
+.form-field-full {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.required {
+  color: #c84747;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 14px 16px;
   border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: #fbfdff;
+  color: var(--ink);
+}
+
+.form-field textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact-result[hidden] {
+  display: none;
+}
+
+.contact-result {
+  margin-top: 22px;
+  background: linear-gradient(180deg, #ffffff, #f5fbff);
+}
+
+.contact-result h4 {
+  margin: 0;
+  color: var(--blue-strong);
+  font-size: 1.1rem;
+}
+
+.contact-result p,
+.contact-result pre {
+  margin-top: 12px;
+  color: var(--muted);
+}
+
+.contact-result pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  background: var(--blue-pale);
+}
+
+.info-list ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.info-list li {
+  padding-left: 0;
+}
+
+.page-link-grid {
+  display: grid;
+  gap: 18px;
+  margin-top: 28px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.page-link-card {
+  padding: 22px;
   border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: var(--white);
   box-shadow: var(--shadow);
 }
 
-.department-note {
-  margin-top: 20px;
-  text-align: center;
+.page-link-card h3 {
+  color: var(--blue-strong);
+}
+
+.page-link-card p {
+  margin-top: 10px;
   color: var(--muted);
 }
 
@@ -525,20 +704,17 @@ h3 {
 
 .footer-inner {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 0;
+  gap: 12px;
 }
 
 .footer-brand {
   font-size: 1.25rem;
   font-weight: 700;
   margin: 0;
-}
-
-.footer-inner p + p {
-  margin-top: 6px;
 }
 
 .detail-page {
@@ -598,46 +774,26 @@ h3 {
   color: var(--ink);
 }
 
-.archive-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 18px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-
-.archive-list li + li {
-  border-top: 1px solid var(--line);
-}
-
-.archive-list a {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 18px 20px;
-  background: var(--white);
-  font-weight: 500;
-}
-
-.archive-list a::after {
-  content: "→";
-  color: var(--blue-strong);
-}
-
-.detail-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+.empty-state {
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--line);
+  background: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  color: var(--muted);
 }
 
 @media (max-width: 960px) {
   .split-layout,
   .access-grid,
+  .contact-grid,
+  .info-grid,
   .medical-grid,
   .staff-grid,
   .faq-preview-grid,
-  .detail-grid {
+  .detail-grid,
+  .page-link-grid,
+  .form-grid {
     grid-template-columns: 1fr;
   }
 
@@ -660,13 +816,13 @@ h3 {
     --container: min(100% - 24px, 1120px);
   }
 
-  .header-inner,
-  .footer-inner {
+  .header-inner {
     flex-direction: column;
   }
 
   .global-nav,
   .footer-nav {
+    justify-content: center;
     gap: 14px 18px;
   }
 
@@ -689,7 +845,12 @@ h3 {
   .access-card,
   .detail-card,
   .detail-block,
-  .detail-hero {
+  .detail-hero,
+  .news-card,
+  .contact-panel,
+  .contact-form-card,
+  .contact-result,
+  .info-list {
     padding: 20px;
   }
 
