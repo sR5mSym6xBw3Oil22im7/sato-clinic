@@ -10,7 +10,7 @@
 - 本サイトは HTML / CSS / JavaScript のみで構成する
 - 文字コードは UTF-8 で統一する
 - データベース、CMS、外部バックエンドは使用しない
-- 公開先は GitHub Pages を想定する
+- 公開先は GitHub Pages とする
 
 ## 作業方針
 
