@@ -40,7 +40,7 @@
             <div>
               <h3>お電話でのご予約</h3>
               <p>一般診療は予約優先制、予防接種や健康診断は完全予約制です。お急ぎの方はお電話をご利用ください。</p>
-              <a class="button button-primary" href="tel:0000000000">00-0000-0000 に電話する</a>
+              <a class="button button-primary" href="#" id="phone-popup-trigger">00-0000-0000 に電話する</a>
             </div>
             <div>
               <h3>受付時間</h3>
@@ -100,7 +100,7 @@
               <h4>メール内容を作成しました</h4>
               <p><strong>件名</strong>: <span data-contact-subject></span></p>
               <pre data-contact-body></pre>
-              <a class="button button-secondary" data-contact-link href="mailto:info@sato-clinic-test.jp">メールソフトを開く</a>
+              <a class="button button-secondary" data-contact-link href="#">メールソフトを開く</a>
             </div>
           </article>
         </div>
@@ -118,6 +118,13 @@
     </div>
   </main>
 
+  <div id="phone-popup" style="display:none; position:fixed; inset:0; background:rgba(31,42,51,0.28); z-index:100; padding:24px;">
+    <div style="max-width:280px; margin:18vh auto 0; background:#fff; border:1px solid #d8e4ec; border-radius:18px; box-shadow:0 18px 45px rgba(49,110,148,0.18); padding:20px; text-align:center;">
+      <p style="margin:0; font-weight:700; color:#1f2a33;">Comming Soon</p>
+      <button class="button button-secondary" type="button" id="phone-popup-close" style="margin-top:16px;">閉じる</button>
+    </div>
+  </div>
+
   <footer class="site-footer">
     <div class="container footer-inner">
       <p class="footer-brand">©佐藤医院</p>
@@ -125,5 +132,35 @@
   </footer>
 
   <script src="./js/contact.js"></script>
+  <script>
+    (function () {
+      const trigger = document.getElementById("phone-popup-trigger");
+      const contactLink = document.querySelector("[data-contact-link]");
+      const popup = document.getElementById("phone-popup");
+      const close = document.getElementById("phone-popup-close");
+
+      if (!trigger || !contactLink || !popup || !close) {
+        return;
+      }
+
+      function openPopup(event) {
+        event.preventDefault();
+        popup.style.display = "block";
+      }
+
+      trigger.addEventListener("click", openPopup);
+      contactLink.addEventListener("click", openPopup);
+
+      close.addEventListener("click", function () {
+        popup.style.display = "none";
+      });
+
+      popup.addEventListener("click", function (event) {
+        if (event.target === popup) {
+          popup.style.display = "none";
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
