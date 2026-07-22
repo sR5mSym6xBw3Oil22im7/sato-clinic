@@ -211,6 +211,16 @@ h3 {
   padding: 88px 0;
 }
 
+#top,
+#news,
+#medical,
+#about,
+#staff,
+#faq-preview,
+#access {
+  scroll-margin-top: calc(var(--header-height) - 38px);
+}
+
 .section-alt {
   background: var(--blue-pale);
 }
