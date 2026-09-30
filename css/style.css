@@ -757,6 +757,13 @@ h3 {
   margin: 0;
 }
 
+.footer-notice {
+  max-width: 720px;
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.8;
+}
+
 .detail-page {
   background:
     radial-gradient(circle at top left, rgba(79, 166, 223, 0.13), transparent 24%),
